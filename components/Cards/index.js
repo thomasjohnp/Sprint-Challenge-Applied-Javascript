@@ -23,12 +23,11 @@ axios
   .then(response => {
     console.log(response.data.articles);
 
-    const cardTopic = Object.entries(response.data.articles);
+    const cardTopic = Object.values(response.data.articles);
 
     cardTopic.forEach(thing => {
-      thing[1].forEach(info => {
-        const thisCard = Card(info);
-        cardEntry.append(thisCard);
+      thing.forEach(info => {
+        cardEntry.append(Card(info));
       });
     });
   })
@@ -57,7 +56,7 @@ function Card(args) {
   card.append(headline);
   card.append(authorDiv);
   authorDiv.append(imgContainer);
-  imgContainer.appendChild(imgSrc);
+  imgContainer.append(imgSrc);
   authorDiv.append(byAuthor);
   return card;
 }

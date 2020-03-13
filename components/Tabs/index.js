@@ -11,7 +11,7 @@
 axios
   .get("https://lambda-times-backend.herokuapp.com/topics")
   .then(response => {
-    console.log(response);
+    //console.log(response);
     let tab = Tab(response.data.topics);
     tabEntry.appendChild(tab);
   })
